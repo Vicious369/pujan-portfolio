@@ -1,4 +1,5 @@
 <title>Pujan Bhandari — A 3-Year Plan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="A plain-language, 3-year roadmap from self-taught security student to freelance cloud security advisor for small businesses." />
 <style>
   @font-face {
@@ -160,11 +161,18 @@
     max-width: var(--maxw); margin: 0 auto; padding: 0.9rem 1.5rem;
     display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   }
-  .wordmark { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; }
-  nav.links { display: flex; gap: 1.4rem; font-size: 0.85rem; font-weight: 500; }
-  nav.links a { text-decoration: none; color: var(--text-muted); }
+  .wordmark { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; flex: none; }
+  nav.links {
+    display: flex; gap: 1.4rem; font-size: 0.85rem; font-weight: 500;
+    min-width: 0; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  nav.links::-webkit-scrollbar { display: none; }
+  nav.links a { text-decoration: none; color: var(--text-muted); white-space: nowrap; padding: 0.2rem 0; }
   nav.links a:hover { color: var(--text); }
-  @media (max-width: 640px) { nav.links { display: none; } }
+  @media (max-width: 640px) {
+    .nav-inner { padding: 0.8rem 1.1rem; gap: 0.9rem; }
+    nav.links { gap: 1.05rem; font-size: 0.8rem; }
+  }
 
   /* ---------- hero ---------- */
   .hero {
@@ -191,9 +199,10 @@
   .cta-row { display: flex; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 2.6rem; }
   .btn {
     font-family: var(--font-body); font-weight: 600; font-size: 0.9rem;
-    text-decoration: none; padding: 0.78rem 1.3rem; border-radius: 99px;
+    text-decoration: none; padding: 0.85rem 1.3rem; border-radius: 99px;
     border: 1.5px solid transparent; display: inline-flex; align-items: center; gap: 0.5em;
     transition: transform 0.15s ease, opacity 0.15s ease;
+    min-height: 44px; box-sizing: border-box;
   }
   .btn:hover { transform: translateY(-1px); }
   .btn--solid { background: var(--clay-on-clay); color: var(--clay-deep); }
@@ -303,6 +312,18 @@
   footer .container {
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.6rem;
     font-size: 0.8rem; color: var(--text-muted);
+  }
+
+  /* ---------- small-phone refinements ---------- */
+  @media (max-width: 480px) {
+    .container { padding: 0 1.15rem; }
+    .hero { padding: 2.6rem 0 2.4rem; }
+    section { padding: 2.8rem 0; }
+    .journey-card, .service-card { padding: 1.3rem 1.25rem 1.4rem; }
+    .labs-now, .labs-hypo { padding: 1.25rem 1.3rem; }
+    .contact-card { padding: 1.8rem 1.4rem; }
+    .check-item { gap: 0.8rem; }
+    footer .container { flex-direction: column; gap: 0.4rem; }
   }
 </style>
 
